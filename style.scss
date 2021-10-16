@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+//Colors
+
+$paleblue: hsl(225, 100%, 94%);
+$brightblue: hsl(245, 75%, 52%);
+$derydaldblue: hsl(225, 100%, 98%);
+$desaturdtedblue: hsl(224, 23%, 55%);
+$darkblue: hsl(223, 47%, 23%);
+
+@mixin flexrow {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flexcol {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: 'Red Hat Display', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    background-color: $paleblue;
+    background-image: url('images/pattern-background-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+    .box {
+        @include flexcol;
+        width: 500px;
+        background-color: white;
+        border-radius: 10px;
+        .content {
+            padding: 25px 50px;
+            @include flexcol;
+            align-items: center;
+            .title {
+                font-weight: 900;
+                font-size: 2rem;
+                margin: 10px 0;
+                color: $darkblue;
+            }
+            .subtitle {
+                font-weight: 500;
+                font-size: 1.1rem;
+                margin: 10px 0;
+                color: $desaturdtedblue;
+                text-align: center;
+            }
+            .pricing {
+                @include flexrow;
+                justify-content: space-around;
+                width: 100%;
+                background-color: $derydaldblue;
+                border-radius: 10px;
+                padding: 15px;
+                margin: 20px 0;
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+                .pricingtext {
+                    width: 50%;
+                    h3 {
+                        font-weight: 900;
+                        color: $darkblue;
+                    }
+                    h4 {
+                        font-weight: 500;
+                        color: $desaturdtedblue
+                    }
+                }
+                button {
+                    border: none;
+                    background: none;
+                    color: $brightblue;
+                    font-weight: 900;
+                    text-decoration: underline;
+                }
+                button:hover {
+                    filter: brightness(200%);
+                    cursor: pointer;
+                }
+            }
+            .buttonbox {
+                @include flexcol;
+                width: 100%;
+                margin: 10px 0;
+                button {
+                    margin: 5px 0;
+                    padding: 15px 0;
+                    border-radius: 10px;
+                    border: none;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    background: none;
+                }
+                .bluebutton {
+                    background-color: $brightblue;
+                    color: white;
+                    box-shadow: 0 20px 20px 0 $paleblue;
+                }
+                button:hover {
+                    filter: brightness(200%);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
